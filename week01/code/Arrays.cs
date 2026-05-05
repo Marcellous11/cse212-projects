@@ -13,7 +13,13 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        var results = new double[length];
+
+        for(var i = 0; i < length;i++){
+            results[i] = number * (i + 1) ;
+        }
+
+        return results; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +35,30 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // create an array to hold the correct values and location
+        var results = new int[data.Count];
+
+        // Iterate through data object
+        for(var i = 0; i< data.Count ;i++){
+
+            // Define new index by reaching back the change amount
+            var new_index = i - amount;
+
+            if(new_index < 0 ){
+                // If the new index is negative, we need to grab values from the end of the array
+                // So we get the lengh of data obj and suctract by negative number to find our
+                // new index
+                results[i] = data[data.Count + new_index];
+            }else{
+                // if we are not negative, we can safely reach to the left and pull that value forward 
+                // to the right.
+                results[i] = data[new_index];
+            }
+        }
+        // Now we just copy our values back over the original data obj
+        for(var i = 0;i < data.Count; i++){
+            data[i] = results[i];
+        }
     }
 }
