@@ -10,7 +10,21 @@ public static class ArraySelector
     }
 
     private static int[] ListSelector(int[] list1, int[] list2, int[] select)
-    {
-        return [];
+    { 
+        var new_array = new int[select.Length];
+        var list1_counter = 0;
+        var list2_counter = 0;
+
+        for(var counter = 0; counter < select.Length; counter++ ){
+            if(select[counter] ==1){
+                new_array[counter] = list1[list1_counter];
+                list1_counter ++;
+            }else{
+                new_array[counter] = list2[list2_counter];
+                list2_counter ++;
+            }
+        }
+
+        return new_array;
     }
 }
