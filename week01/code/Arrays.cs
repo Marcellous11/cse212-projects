@@ -13,9 +13,14 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        //define a return array
         var results = new double[length];
 
+        // count up to the length of the 'length' parameter
         for(var i = 0; i < length;i++){
+
+            // set the index of the results to the value of 'number' times the incrementing index + 1
+            // the plus one avoid the 0 and sets up the count correctly
             results[i] = number * (i + 1) ;
         }
 
