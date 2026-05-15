@@ -14,8 +14,14 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 1");
+        CustomerService test1 = new CustomerService(-1);
 
-        // Defect(s) Found: 
+        if(test1._maxSize == 10){
+            Console.WriteLine("Passed: Max size logic working");
+        }else{
+            Console.WriteLine("Faile: Max size logic failed");
+        }
+        // Defect(s) Found: None Found
 
         Console.WriteLine("=================");
 
@@ -23,6 +29,25 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 2");
+
+        CustomerService test2 = new CustomerService(1);
+
+
+        test2.AddNewCustomer();
+
+        if(test2._queue.Count > 0){
+            Console.WriteLine("Passed: Customer added successfully");
+        }else{
+            Console.WriteLine("Failed: Customer NOT added successfully");
+        }
+
+        test2.AddNewCustomer();
+       if(test2._queue.Count == 1){
+            Console.WriteLine("Passed: Second customer not added");
+        }else if(test2._queue.Count >= 1){
+            Console.WriteLine("Failed: Customer was added to queue ");
+        }
+
 
         // Defect(s) Found: 
 
