@@ -6,13 +6,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class PriorityQueueTests
 {
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Dave is the priority
+    // Expected Result: Expected dave
+    // Defect(s) Found:  Expected Jerry to be second in the dequeue, but got Dave.. again.
+    // 1. Values was not being removed from the queue. 
+    // 2. First value of queue was being skipped.
+    // 3. Also we were stopping before we got to the last one.
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+        priorityQueue.Enqueue("Mike",1);
+        priorityQueue.Enqueue("Dave",10);
+        priorityQueue.Enqueue("Jerry",5);
+
+
+        Assert.AreEqual("Dave",priorityQueue.Dequeue());
+        Assert.AreEqual("Jerry",priorityQueue.Dequeue());
+        Assert.AreEqual("Mike",priorityQueue.Dequeue());
+
+        
     }
 
     [TestMethod]
@@ -22,7 +34,8 @@ public class PriorityQueueTests
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+        priorityQueue.Dequeue();
+        Assert.Fail("Priority Queue is empty");
     }
 
     // Add more test cases as needed below.
