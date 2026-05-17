@@ -17,10 +17,12 @@ public class PriorityQueueTests
         var priorityQueue = new PriorityQueue();
         priorityQueue.Enqueue("Mike",1);
         priorityQueue.Enqueue("Dave",10);
+        priorityQueue.Enqueue("Joe",10);
         priorityQueue.Enqueue("Jerry",5);
 
 
         Assert.AreEqual("Dave",priorityQueue.Dequeue());
+        Assert.AreEqual("Joe",priorityQueue.Dequeue());
         Assert.AreEqual("Jerry",priorityQueue.Dequeue());
         Assert.AreEqual("Mike",priorityQueue.Dequeue());
 
