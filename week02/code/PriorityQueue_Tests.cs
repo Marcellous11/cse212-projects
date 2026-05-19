@@ -36,8 +36,15 @@ public class PriorityQueueTests
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
-        priorityQueue.Dequeue();
-        Assert.Fail("Priority Queue is empty");
+
+        try{
+            priorityQueue.Dequeue();
+            Assert.Fail();
+        }catch(InvalidOperationException ){
+            // - Test passed
+        }
+   
+
     }
 
     // Add more test cases as needed below.
